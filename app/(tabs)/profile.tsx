@@ -54,7 +54,9 @@ export default function ProfileScreen() {
           <View style={styles.gameItem}>
             <Text style={styles.gameText}>Game 1</Text>
             <View style={styles.gameButtons}>
-              <TouchableOpacity style={styles.gameButton}>
+              <TouchableOpacity style={styles.gameButton}
+              onPress={() => router.push('/(tabs)/game1Feedback')}
+              >
                 <Text style={styles.gameButtonText}>Feedback</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.gameButton}
@@ -67,7 +69,9 @@ export default function ProfileScreen() {
           <View style={styles.gameItem}>
             <Text style={styles.gameText}>Game 2</Text>
             <View style={styles.gameButtons}>
-              <TouchableOpacity style={styles.gameButton}>
+              <TouchableOpacity style={styles.gameButton}
+              onPress={() => router.push('/(tabs)/game2Feedback')}
+              >
                 <Text style={styles.gameButtonText}>Feedback</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.gameButton}
