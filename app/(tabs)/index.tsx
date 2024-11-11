@@ -2,15 +2,19 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Text, View } from '@/components/Themed';
 import { useUser } from '@/components/userContext';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { useRouter } from 'expo-router';
 
 export default function HomeScreen() {
   const { username, logout } = useUser();
+  const router = useRouter();
 
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
         <View style={styles.profileContainer}>
-          <TouchableOpacity style={styles.profileButton}>
+          <TouchableOpacity style={styles.profileButton}
+          onPress={() => router.push('/(tabs)/profile')}
+          >
             <FontAwesome name="user-circle" size={40} color="#4a90e2" />
             <Text style={styles.profileText}>{username}</Text>
           </TouchableOpacity>
