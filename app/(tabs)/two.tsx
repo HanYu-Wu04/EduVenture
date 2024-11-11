@@ -1,14 +1,18 @@
 import { StyleSheet } from 'react-native';
 import { Text, View, TextInput } from 'react-native';
 import { TouchableOpacity } from 'react-native';
-import { useUser } from '@/components/userContext'; // Adjust this import path based on your file structure
+import { useUser } from '@/components/userContext';
+import { useRouter } from 'expo-router';
 
 export default function TabTwoScreen() {
   const { username, setUsername } = useUser();
+  const router = useRouter();
 
   const handleSubmit = async () => {
-    // Any additional submit logic can go here
-    console.log('Username saved:', username);
+    if (username.trim()) {
+      await setUsername(username.trim());
+      router.replace('/(tabs)/'); // Navigate to home screen
+    }
   };
 
   return (
