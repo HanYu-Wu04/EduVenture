@@ -3,11 +3,13 @@ import { Text, View } from '@/components/Themed';
 import { useUser } from '@/components/userContext';
 import { useState } from 'react';
 import { TextInput } from 'react-native';
+import { useRouter } from 'expo-router';
 
 export default function ProfileScreen() {
   const { username, setUsername } = useUser();
   const [isEditing, setIsEditing] = useState(false);
   const [tempUsername, setTempUsername] = useState(username);
+  const router = useRouter();
 
   const handleSave = async () => {
     if (tempUsername.trim()) {
@@ -74,6 +76,7 @@ export default function ProfileScreen() {
           </View>
         </View>
       </View>
+      
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Overall Recommendations</Text>
@@ -81,6 +84,13 @@ export default function ProfileScreen() {
           Practice division and reading speed. {username}'s multiplication skills are good, but {username}'s addition could use some work.
         </Text>
       </View>
+
+      <TouchableOpacity 
+        style={styles.homeButton} 
+        onPress={() => router.push('/')}
+      >
+        <Text style={styles.homeButtonText}>Home</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -175,5 +185,23 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     paddingLeft: 20,
+  },
+  homeButton: {
+    backgroundColor: '#4a90e2',
+    paddingVertical: 10,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    marginVertical: 20,
+    width: '5%',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+  },
+  homeButtonText: {
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: 'bold',
   },
 });
