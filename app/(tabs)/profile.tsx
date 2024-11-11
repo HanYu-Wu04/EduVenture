@@ -57,7 +57,8 @@ export default function ProfileScreen() {
               <TouchableOpacity style={styles.gameButton}>
                 <Text style={styles.gameButtonText}>Feedback</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.gameButton}>
+              <TouchableOpacity style={styles.gameButton}
+              onPress={() => router.push('/(tabs)/game1History')}>
                 <Text style={styles.gameButtonText}>History</Text>
               </TouchableOpacity>
             </View>
@@ -69,7 +70,8 @@ export default function ProfileScreen() {
               <TouchableOpacity style={styles.gameButton}>
                 <Text style={styles.gameButtonText}>Feedback</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.gameButton}>
+              <TouchableOpacity style={styles.gameButton}
+              onPress={() => router.push('/(tabs)/game2History')}>
                 <Text style={styles.gameButtonText}>History</Text>
               </TouchableOpacity>
             </View>
@@ -77,7 +79,6 @@ export default function ProfileScreen() {
         </View>
       </View>
       
-
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Overall Recommendations</Text>
         <Text style={styles.recommendationText}>
@@ -87,7 +88,7 @@ export default function ProfileScreen() {
 
       <TouchableOpacity 
         style={styles.homeButton} 
-        onPress={() => router.push('/')}
+        onPress={() => router.push('/(tabs)/')}
       >
         <Text style={styles.homeButtonText}>Home</Text>
       </TouchableOpacity>
@@ -129,6 +130,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginRight: 10,
+    color: '#000', // Ensures the text is black in light mode
   },
   editButton: {
     backgroundColor: '#4a90e2',
@@ -153,9 +155,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textDecorationLine: 'underline',
     marginBottom: 15,
+    color: '#000', // Ensures the section title is black in light mode
   },
   gamesList: {
     paddingLeft: 20,
+    backgroundColor: '#f5f5f5',
   },
   gameItem: {
     flexDirection: 'row',
@@ -166,6 +170,7 @@ const styles = StyleSheet.create({
   gameText: {
     fontSize: 16,
     marginRight: 15,
+    color: '#000', // Ensures game text is black in light mode
   },
   gameButtons: {
     flexDirection: 'row',
@@ -185,6 +190,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     paddingLeft: 20,
+    color: '#000', 
   },
   homeButton: {
     backgroundColor: '#4a90e2',

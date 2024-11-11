@@ -10,10 +10,11 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.topBar}>
+      <View style={styles.header}>
         <View style={styles.profileContainer}>
-          <TouchableOpacity style={styles.profileButton}
-          onPress={() => router.push('/(tabs)/profile')}
+          <TouchableOpacity 
+            style={styles.profileButton}
+            onPress={() => router.push('/(tabs)/profile')}
           >
             <FontAwesome name="user-circle" size={40} color="#4a90e2" />
             <Text style={styles.profileText}>{username}</Text>
@@ -28,16 +29,48 @@ export default function HomeScreen() {
         </View>
       </View>
 
-      <Text style={styles.title}>Welcome to EduVenture</Text>
-      <Text style={styles.subtitle}>Choose your path:</Text>
-      
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Game</Text>
-      </TouchableOpacity>
+      <View style={styles.mainContent}>
+        <Text style={styles.title}>Welcome to EduVenture</Text>
+        
+        <View style={styles.contentContainer}>
+          <View style={styles.row}>
+            <TouchableOpacity style={styles.squareButton}
+            onPress={() => router.push('/(tabs)/game1')}
+            >
+              <Text style={styles.buttonText}>Game 1</Text>
+            </TouchableOpacity>
+            <View style={styles.descriptionContainer}>
+              <Text style={styles.descriptionText}>
+                This is game 1. This is a short description of the game
+              </Text>
+            </View>
+          </View>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Learning Path</Text>
-      </TouchableOpacity>
+          <View style={styles.row}>
+            <TouchableOpacity style={styles.squareButton}
+            onPress={() => router.push('/(tabs)/game2')}
+            >
+              <Text style={styles.buttonText}>Game 2</Text>
+            </TouchableOpacity>
+            <View style={styles.descriptionContainer}>
+              <Text style={styles.descriptionText}>
+                This is game 2. This is a short description of the game
+              </Text>
+            </View>
+          </View>
+
+          <View style={styles.row}>
+            <TouchableOpacity style={styles.squareButton}>
+              <Text style={styles.buttonText}>Learning Path</Text>
+            </TouchableOpacity>
+            <View style={styles.descriptionContainer}>
+              <Text style={styles.descriptionText}>
+                Go here to see how you are progressing in your learning and change the pace and difficulty.
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
     </View>
   );
 }
@@ -45,20 +78,17 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#ffffff', // Light background color for entire screen
   },
-  topBar: {
-    position: 'absolute',
-    top: 40,
-    left: 20,
-    backgroundColor: 'transparent',
+  header: {
+    paddingTop: 40,
+    paddingHorizontal: 20,
+    paddingBottom: 20,
+    backgroundColor: '#ffffff', // Ensure header has light background
   },
   profileContainer: {
     alignItems: 'flex-start',
-    backgroundColor: 'transparent',
+    backgroundColor: '#ffffff', // Set profile container to light background
   },
   profileButton: {
     flexDirection: 'row',
@@ -92,24 +122,36 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#666',
   },
+  mainContent: {
+    flex: 1,
+    paddingHorizontal: 20,
+    backgroundColor: '#ffffff', // Ensure mainContent background is light
+  },
   title: {
     fontSize: 28,
     fontWeight: 'bold',
     color: '#333',
-    marginBottom: 10,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#666',
     marginBottom: 30,
+    textAlign: 'center',
   },
-  button: {
+  contentContainer: {
+    flex: 1,
+    gap: 20,
+    backgroundColor: '#ffffff', // Ensure content container is light
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 20,
+    gap: 15,
+    backgroundColor: '#ffffff', // Ensure row container is light
+  },
+  squareButton: {
     backgroundColor: '#4a90e2',
-    paddingVertical: 15,
-    paddingHorizontal: 40,
+    width: 120,
+    height: 120,
     borderRadius: 10,
-    marginVertical: 10,
-    width: '80%',
+    justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -120,5 +162,16 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  descriptionContainer: {
+    flex: 1,
+    backgroundColor: '#ffffff', // Ensure description container is light
+    paddingHorizontal: 10,
+  },
+  descriptionText: {
+    fontSize: 16,
+    color: '#666',
+    lineHeight: 22,
   },
 });
