@@ -68,10 +68,24 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="history" color={color} />,
           }}
         />
-                <Tabs.Screen
+          <Tabs.Screen
           name="game2"
           options={{
           title: 'Game 2',
+          tabBarIcon: ({ color }) => <TabBarIcon name="gamepad" color={color} />,
+          }}
+        />
+          <Tabs.Screen
+          name="game1Feedback"
+          options={{
+          title: 'Game 1 Feedback',
+          tabBarIcon: ({ color }) => <TabBarIcon name="gamepad" color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name="game2Feedback"
+          options={{
+          title: 'Game 2 Feedback',
           tabBarIcon: ({ color }) => <TabBarIcon name="gamepad" color={color} />,
           }}
         />

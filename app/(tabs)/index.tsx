@@ -78,17 +78,17 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff', // Light background color for entire screen
+    backgroundColor: '#ffffff', 
   },
   header: {
     paddingTop: 40,
     paddingHorizontal: 20,
     paddingBottom: 20,
-    backgroundColor: '#ffffff', // Ensure header has light background
+    backgroundColor: '#ffffff', 
   },
   profileContainer: {
     alignItems: 'flex-start',
-    backgroundColor: '#ffffff', // Set profile container to light background
+    backgroundColor: '#ffffff', 
   },
   profileButton: {
     flexDirection: 'row',
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   mainContent: {
     flex: 1,
     paddingHorizontal: 20,
-    backgroundColor: '#ffffff', // Ensure mainContent background is light
+    backgroundColor: '#ffffff', 
   },
   title: {
     fontSize: 28,
@@ -137,14 +137,14 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     gap: 20,
-    backgroundColor: '#ffffff', // Ensure content container is light
+    backgroundColor: '#ffffff', 
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 20,
     gap: 15,
-    backgroundColor: '#ffffff', // Ensure row container is light
+    backgroundColor: '#ffffff', 
   },
   squareButton: {
     backgroundColor: '#4a90e2',
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   },
   descriptionContainer: {
     flex: 1,
-    backgroundColor: '#ffffff', // Ensure description container is light
+    backgroundColor: '#ffffff', 
     paddingHorizontal: 10,
   },
   descriptionText: {

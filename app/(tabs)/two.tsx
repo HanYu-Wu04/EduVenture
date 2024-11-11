@@ -11,7 +11,7 @@ export default function TabTwoScreen() {
   const handleSubmit = async () => {
     if (username.trim()) {
       await setUsername(username.trim());
-      router.replace('/(tabs)/'); // Navigate to home screen
+      router.replace('/(tabs)/'); 
     }
   };
 
@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20,
+    backgroundColor: '#ffffff', 
   },
   title: {
     fontSize: 24,

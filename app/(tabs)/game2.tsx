@@ -25,7 +25,9 @@ export default function Game2Screen() {
           >
             <Text style={styles.secondaryButtonText}>History</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.secondaryButton}>
+          <TouchableOpacity style={styles.secondaryButton}
+          onPress={() => router.push('/(tabs)/game2Feedback')}
+          >
             <Text style={styles.secondaryButtonText}>Feedback</Text>
           </TouchableOpacity>
         </View>

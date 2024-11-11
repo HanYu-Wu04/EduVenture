@@ -67,10 +67,10 @@ export default function Game1HistoryScreen() {
       </View>
 
       <TouchableOpacity 
-        style={styles.homeButton}
-        onPress={() => router.push('/(tabs)/')}
+        style={styles.backButton}
+        onPress={() => router.push('/(tabs)/game1')}
       >
-        <FontAwesome name="home" size={24} color="#4a90e2" />
+        <FontAwesome name="arrow-left" size={24} color="#4a90e2" />
       </TouchableOpacity>
     </View>
   );
@@ -121,10 +121,10 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     backgroundColor: '#f5f5f5',
   },
-  homeButton: {
+  backButton: {
     position: 'absolute',
     bottom: 20,
-    right: 20,
+    left: 20,
     padding: 10,
     backgroundColor: '#fff', 
     borderRadius: 30, 

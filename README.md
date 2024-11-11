@@ -1,2 +1,2 @@
 # EduVenture
-Clone the git, run npm install and then npm start. Press w if you want a web-based version, however if you download the expo go app on IOS or Android and scan the QR code, you should be able to view the app version. 
+Clone the git, run npm install and then npm start. Press w if you want a web-based version, however if you download the expo go app on IOS or Android and scan the QR code, you should be able to view the app version so long as the code is running on the computer and the device that scanned the app is on the same local network.

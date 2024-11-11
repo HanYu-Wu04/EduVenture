@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginRight: 10,
-    color: '#000', // Ensures the text is black in light mode
+    color: '#000', 
   },
   editButton: {
     backgroundColor: '#4a90e2',
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textDecorationLine: 'underline',
     marginBottom: 15,
-    color: '#000', // Ensures the section title is black in light mode
+    color: '#000', 
   },
   gamesList: {
     paddingLeft: 20,
