@@ -6,7 +6,6 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 export default function Game1HistoryScreen() {
   const router = useRouter();
 
-  // Example stats - these would normally come from your game data
   const stats = {
     timesPlayed: 42,
     solutionsCalculated: 156,

@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   gameText: {
     fontSize: 16,
     marginRight: 15,
-    color: '#000', // Ensures game text is black in light mode
+    color: '#000',
   },
   gameButtons: {
     flexDirection: 'row',
