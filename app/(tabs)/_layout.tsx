@@ -97,7 +97,7 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="setup"
+          name="pathSetup"
           options={{
           title: 'Path setup',
           tabBarIcon: ({ color }) => <TabBarIcon name="gamepad" color={color} />,
