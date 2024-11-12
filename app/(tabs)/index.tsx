@@ -60,7 +60,8 @@ export default function HomeScreen() {
           </View>
 
           <View style={styles.row}>
-            <TouchableOpacity style={styles.squareButton}>
+            <TouchableOpacity style={styles.squareButton}
+            onPress={() => router.push('/(tabs)/learning')}>
               <Text style={styles.buttonText}>Learning Path</Text>
             </TouchableOpacity>
             <View style={styles.descriptionContainer}>

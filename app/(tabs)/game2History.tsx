@@ -68,7 +68,7 @@ export default function Game2HistoryScreen() {
 
       <TouchableOpacity 
         style={styles.backButton}
-        onPress={() => router.push('/(tabs)/game1')}
+        onPress={() => router.push('/(tabs)/game2')}
       >
         <FontAwesome name="arrow-left" size={24} color="#4a90e2" />
       </TouchableOpacity>

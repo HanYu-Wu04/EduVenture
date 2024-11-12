@@ -89,6 +89,20 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="gamepad" color={color} />,
           }}
         />
+        <Tabs.Screen
+          name="learning"
+          options={{
+          title: 'Learning Path',
+          tabBarIcon: ({ color }) => <TabBarIcon name="gamepad" color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name="setup"
+          options={{
+          title: 'Path setup',
+          tabBarIcon: ({ color }) => <TabBarIcon name="gamepad" color={color} />,
+          }}
+        />
       </Tabs>
     </UserProvider>
   );
