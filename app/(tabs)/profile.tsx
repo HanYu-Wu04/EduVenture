@@ -4,6 +4,7 @@ import { useUser } from '@/components/userContext';
 import { useState } from 'react';
 import { TextInput } from 'react-native';
 import { useRouter } from 'expo-router';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 export default function ProfileScreen() {
   const { username, setUsername } = useUser();
@@ -91,10 +92,10 @@ export default function ProfileScreen() {
       </View>
 
       <TouchableOpacity 
-        style={styles.homeButton} 
+        style={styles.homeButton}
         onPress={() => router.push('/(tabs)/')}
       >
-        <Text style={styles.homeButtonText}>Home</Text>
+        <FontAwesome name="home" size={24} color="#4a90e2" />
       </TouchableOpacity>
     </View>
   );
@@ -197,21 +198,10 @@ const styles = StyleSheet.create({
     color: '#000', 
   },
   homeButton: {
-    backgroundColor: '#4a90e2',
-    paddingVertical: 10,
-    paddingHorizontal: 40,
-    borderRadius: 10,
-    marginVertical: 20,
-    width: '5%',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-  },
-  homeButtonText: {
-    color: '#fff',
-    fontSize: 14,
-    fontWeight: 'bold',
+    position: 'absolute',
+    bottom: 20,
+    right: 20,
+    padding: 10,
+    backgroundColor: '#f5f5f5',
   },
 });

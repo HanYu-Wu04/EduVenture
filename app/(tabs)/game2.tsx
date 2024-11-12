@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       padding: 20,
-      backgroundColor: '#ffffff', // Light background for the entire screen
+      backgroundColor: '#ffffff', 
     },
     title: {
       fontSize: 32,
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       marginTop: 20,
       marginBottom: 20,
-      color: '#333', // Text color for light mode
+      color: '#333', 
     },
     imagePlaceholder: {
       width: '100%',
@@ -87,10 +87,10 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
       alignItems: 'flex-start',
       marginBottom: 30,
-      backgroundColor: '#ffffff', // Ensure light background for button container
+      backgroundColor: '#ffffff', 
       paddingVertical: 10,
       paddingHorizontal: 5,
-      borderRadius: 10, // Optional: adds rounded corners to the container
+      borderRadius: 10, 
     },
     playButton: {
       backgroundColor: '#4a90e2',
