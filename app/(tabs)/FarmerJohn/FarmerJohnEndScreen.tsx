@@ -1,7 +1,8 @@
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import { useRouter } from 'expo-router';
 
 export default function FarmerJohnEndScreen() {
+  const FarmerJohnEnd = require("@/assets/images/FarmerJohn/FarmerJohnEndScreen.png");
   const router = useRouter();
 
   const handleReturnHome = () => {
@@ -9,26 +10,42 @@ export default function FarmerJohnEndScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.endingText}>Congratulations! Farmer John have harvested all the apples and fed all the animals, thank you so much for what you did</Text>
-      <TouchableOpacity style={styles.returnButton} onPress={handleReturnHome}>
-        <Text style={styles.returnButtonText}>Return Home</Text>
-      </TouchableOpacity>
-    </View>
+    <ImageBackground
+      source={FarmerJohnEnd}
+      resizeMode="cover"
+      style={styles.background}
+    >
+      <View style={styles.overlay}>
+        <Text style={styles.endingText}>
+          Congratulations! Farmer John has harvested all the apples and fed all the animals. Thank you so much for what you did!
+        </Text>
+        <TouchableOpacity style={styles.returnButton} onPress={handleReturnHome}>
+          <Text style={styles.returnButtonText}>Return Home</Text>
+        </TouchableOpacity>
+      </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  background: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-    backgroundColor: '#ffffff',
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  overlay: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 25,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)', // A dark overlay for readability
   },
   endingText: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: '#fff', // White text for contrast
     textAlign: 'center',
     marginBottom: 30,
   },
