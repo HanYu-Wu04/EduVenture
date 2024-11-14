@@ -1,22 +1,22 @@
-import { StyleSheet, TouchableOpacity } from 'react-native';
-import { Text, View } from '@/components/Themed';
-import { useRouter } from 'expo-router';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View } from "@/components/Themed";
+import { useRouter } from "expo-router";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
-export default function Game2FeedbackScreen() {
+export default function WonderWomanFeedback() {
   const router = useRouter();
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Game 2 Feedback</Text>
-      
+
       <View style={styles.feedbackSection}>
         <Text style={styles.feedbackLabel}>Feedback:</Text>
         <Text style={styles.feedbackText}>
-          You can type fast enough! Work on comprehending the task at hand faster by
-          building up your reading speed.
+          You can type fast enough! Work on comprehending the task at hand
+          faster by building up your reading speed.
         </Text>
-        
+
         <View style={styles.skillsSection}>
           <Text style={styles.skillText}>
             <Text style={styles.skillLabel}>Top skill:</Text> Typing speed
@@ -27,9 +27,9 @@ export default function Game2FeedbackScreen() {
         </View>
       </View>
 
-      <TouchableOpacity 
+      <TouchableOpacity
         style={styles.backButton}
-        onPress={() => router.push('/(tabs)/game2')}
+        onPress={() => router.push("/(tabs)/WonderWoman/WonderWoman")}
       >
         <FontAwesome name="arrow-left" size={24} color="#4a90e2" />
       </TouchableOpacity>
@@ -41,50 +41,50 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
   },
   title: {
     fontSize: 32,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
     marginTop: 20,
     marginBottom: 30,
-    color: '#333',
+    color: "#333",
   },
   feedbackSection: {
     marginTop: 20,
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
   },
   feedbackLabel: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 15,
-    color: '#333',
+    color: "#333",
   },
   feedbackText: {
     fontSize: 18,
     lineHeight: 26,
-    color: '#666',
+    color: "#666",
     marginBottom: 30,
   },
   skillsSection: {
     marginTop: 20,
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
   },
   skillText: {
     fontSize: 18,
     marginBottom: 10,
-    color: '#666',
+    color: "#666",
   },
   skillLabel: {
-    fontWeight: 'bold',
-    color: '#333',
+    fontWeight: "bold",
+    color: "#333",
   },
   backButton: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 20,
     left: 20,
     padding: 10,
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
   },
 });
