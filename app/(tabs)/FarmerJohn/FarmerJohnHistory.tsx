@@ -68,7 +68,7 @@ export default function Game1HistoryScreen() {
 
       <TouchableOpacity 
         style={styles.backButton}
-        onPress={() => router.push('/(tabs)/game1')}
+        onPress={() => router.push('/(tabs)/FarmerJohn/FarmerJohn')}
       >
         <FontAwesome name="arrow-left" size={24} color="#4a90e2" />
       </TouchableOpacity>

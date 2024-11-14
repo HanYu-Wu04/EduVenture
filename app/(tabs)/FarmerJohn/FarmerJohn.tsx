@@ -15,18 +15,19 @@ export default function Game1Screen() {
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.playButton}>
+        <TouchableOpacity style={styles.playButton} 
+          onPress={() => router.push('/(tabs)/FarmerJohn/FarmerJohnCountingApplesScreen')}>
           <Text style={styles.playButtonText}>Play</Text>
         </TouchableOpacity>
-        
+      
         <View style={styles.rightButtons}>
           <TouchableOpacity style={styles.secondaryButton}
-          onPress={() => router.push('/(tabs)/game1History')}
+          onPress={() => router.push('/(tabs)/FarmerJohn/FarmerJohnHistory')}
           >
             <Text style={styles.secondaryButtonText}>History</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.secondaryButton}
-          onPress={() => router.push('/(tabs)/game1Feedback')}
+          onPress={() => router.push('/(tabs)/FarmerJohn/FarmerJohnFeedback')}
           >
             <Text style={styles.secondaryButtonText}>Feedback</Text>
           </TouchableOpacity>
@@ -53,7 +54,7 @@ export default function Game1Screen() {
 
       <TouchableOpacity 
         style={styles.homeButton}
-        onPress={() => router.push('/(tabs)/')}
+        onPress={() => router.push('/(tabs)/home')}
       >
         <FontAwesome name="home" size={24} color="#4a90e2" />
       </TouchableOpacity>
