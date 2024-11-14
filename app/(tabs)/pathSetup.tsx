@@ -81,7 +81,7 @@ export default function pathSetup() {
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.playButton}
-            onPress={() => router.push('/')} // Navigate back to home
+            onPress={() => router.push('/(tabs)/home')} // Navigate back to home
           >
             <Text style={styles.playButtonText}>Make Path!</Text>
           </TouchableOpacity>
@@ -90,7 +90,7 @@ export default function pathSetup() {
 
       <TouchableOpacity 
         style={styles.homeButton}
-        onPress={() => router.push('/')}
+        onPress={() => router.push('/(tabs)/home')}
       >
         <FontAwesome name="home" size={24} color="#4a90e2" />
       </TouchableOpacity>

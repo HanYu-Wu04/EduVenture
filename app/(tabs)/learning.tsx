@@ -39,7 +39,7 @@ export default function learning() {
 
       <TouchableOpacity 
         style={styles.homeButton}
-        onPress={() => router.push('/(tabs)/')}
+        onPress={() => router.push('/(tabs)/home')}
       >
         <FontAwesome name="home" size={24} color="#4a90e2" />
       </TouchableOpacity>
