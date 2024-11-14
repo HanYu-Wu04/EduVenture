@@ -106,11 +106,20 @@ export default function ProfileScreen() {
         </Text>
       </View>
 
+      {/* Home Button */}
       <TouchableOpacity 
         style={styles.homeButton}
         onPress={() => router.push('/(tabs)/home')}
       >
         <FontAwesome name="home" size={24} color="#4a90e2" />
+      </TouchableOpacity>
+
+      {/* Teacher Dashboard Button */}
+      <TouchableOpacity 
+        style={styles.teacherButton}
+        onPress={() => router.push('/(tabs)/TeacherDashboard')}
+      >
+        <Text style={styles.teacherButtonText}>Teacher Dashboard</Text>
       </TouchableOpacity>
     </View>
   );
@@ -218,5 +227,19 @@ const styles = StyleSheet.create({
     right: 20,
     padding: 10,
     backgroundColor: '#f5f5f5',
+  },
+  teacherButton: {
+    position: 'absolute',
+    bottom: 80,
+    right: 20,
+    padding: 10,
+    backgroundColor: '#4a90e2',
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  teacherButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
