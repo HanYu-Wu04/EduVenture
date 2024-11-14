@@ -60,6 +60,15 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
+          name="FarmerJohn/FarmerJohnReview"
+          options={{
+            title: "Game 1",
+            tabBarIcon: ({ color }) => (
+              <TabBarIcon name="gamepad" color={color} />
+            ),
+          }}
+        />
+        <Tabs.Screen
           name="FarmerJohn/FarmerJohnHistory"
           options={{
             title: "Game 1 History",
@@ -79,6 +88,15 @@ export default function TabLayout() {
         />
         <Tabs.Screen
           name="WonderWoman/WonderWoman"
+          options={{
+            title: "Game 2",
+            tabBarIcon: ({ color }) => (
+              <TabBarIcon name="gamepad" color={color} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="WonderWoman/WonderWomanReview"
           options={{
             title: "Game 2",
             tabBarIcon: ({ color }) => (

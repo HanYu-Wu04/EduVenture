@@ -27,6 +27,13 @@ export default function WonderWomanFeedback() {
         </View>
       </View>
 
+      <TouchableOpacity 
+        style={styles.button}
+        onPress={() => router.push('/(tabs)/WonderWoman/WonderWomanReview')}
+      >
+        <Text style={styles.buttonText}>Review</Text>
+      </TouchableOpacity>
+
       <TouchableOpacity
         style={styles.backButton}
         onPress={() => router.push("/(tabs)/WonderWoman/WonderWoman")}
@@ -86,5 +93,18 @@ const styles = StyleSheet.create({
     left: 20,
     padding: 10,
     backgroundColor: "#ffffff",
+  },
+  button: {
+    backgroundColor: '#4a90e2',
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    width: '100%',
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
