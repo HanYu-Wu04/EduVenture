@@ -1,10 +1,10 @@
-import { StyleSheet, TouchableOpacity } from 'react-native';
-import { Text, View } from '@/components/Themed';
-import { useUser } from '@/components/userContext';
-import { useState } from 'react';
-import { TextInput } from 'react-native';
-import { useRouter } from 'expo-router';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View } from "@/components/Themed";
+import { useUser } from "@/components/userContext";
+import { useState } from "react";
+import { TextInput } from "react-native";
+import { useRouter } from "expo-router";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 export default function ProfileScreen() {
   const { username, setUsername } = useUser();
@@ -107,17 +107,17 @@ export default function ProfileScreen() {
       </View>
 
       {/* Home Button */}
-      <TouchableOpacity 
+      <TouchableOpacity
         style={styles.homeButton}
-        onPress={() => router.push('/(tabs)/home')}
+        onPress={() => router.push("/(tabs)/home")}
       >
         <FontAwesome name="home" size={24} color="#4a90e2" />
       </TouchableOpacity>
 
       {/* Teacher Dashboard Button */}
-      <TouchableOpacity 
+      <TouchableOpacity
         style={styles.teacherButton}
-        onPress={() => router.push('/(tabs)/TeacherDashboard')}
+        onPress={() => router.push("/(tabs)/TeacherDashboard")}
       >
         <Text style={styles.teacherButtonText}>Teacher Dashboard</Text>
       </TouchableOpacity>
@@ -129,11 +129,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#85CAD5", //f5f5f5
   },
   section: {
     marginBottom: 30,
-    backgroundColor: "transparent",
+    backgroundColor: "transparent", //transparent
   },
   usernameContainer: {
     flexDirection: "row",
@@ -145,6 +145,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     flex: 1,
+    backgroundColor: "#85CAD5",
   },
   input: {
     flex: 1,
@@ -154,59 +155,67 @@ const styles = StyleSheet.create({
     marginRight: 10,
     borderWidth: 1,
     borderColor: "#ddd",
+    fontFamily: "Galindo_400Regular",
   },
   label: {
     fontSize: 18,
     fontWeight: "bold",
     marginRight: 10,
-    color: "#000",
+    color: "#E13971",
+    fontFamily: "Galindo_400Regular",
   },
   editButton: {
-    backgroundColor: "#4a90e2",
+    backgroundColor: "#273DBD",
     padding: 8,
     borderRadius: 6,
   },
   editButtonText: {
     color: "#fff",
     fontSize: 14,
+    fontFamily: "Galindo_400Regular",
   },
   button: {
-    backgroundColor: "#4a90e2",
+    backgroundColor: "#273DBD",
     padding: 10,
     borderRadius: 8,
   },
   buttonText: {
     color: "#fff",
     fontSize: 16,
+    fontFamily: "Galindo_400Regular",
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: "bold",
     textDecorationLine: "underline",
     marginBottom: 15,
-    color: "#000",
+    color: "#E13971",
+    fontFamily: "Galindo_400Regular",
   },
   gamesList: {
     paddingLeft: 20,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#85CAD5",
   },
   gameItem: {
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 15,
-    backgroundColor: "transparent",
+    backgroundColor: "#69BB57",
+    borderRadius: 5,
   },
   gameText: {
     fontSize: 16,
     marginRight: 15,
-    color: "#000", // Ensures game text is black in light mode
+    color: "#fff", // Ensures game text is black in light mode
+    fontFamily: "Galindo_400Regular",
+    backgroundColor: "#69BB57", //new line
   },
   gameButtons: {
     flexDirection: "row",
     backgroundColor: "transparent",
   },
   gameButton: {
-    backgroundColor: "#4a90e2",
+    backgroundColor: "#273DBD",
     padding: 8,
     borderRadius: 6,
     marginRight: 10,
@@ -214,32 +223,37 @@ const styles = StyleSheet.create({
   gameButtonText: {
     color: "#fff",
     fontSize: 14,
+    fontFamily: "Galindo_400Regular",
   },
   recommendationText: {
     fontSize: 16,
     lineHeight: 24,
     paddingLeft: 20,
-    color: "#000",
+    color: "#fff",
+    fontFamily: "Galindo_400Regular",
+    backgroundColor: "#69BB57",
+    borderRadius: 5,
   },
   homeButton: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 20,
     right: 20,
     padding: 10,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: "#f5f5f5",
   },
   teacherButton: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 80,
     right: 20,
     padding: 10,
-    backgroundColor: '#4a90e2',
+    backgroundColor: "#273DBD",
     borderRadius: 8,
-    alignItems: 'center',
+    alignItems: "center",
   },
   teacherButtonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
+    fontFamily: "Galindo_400Regular",
   },
 });
