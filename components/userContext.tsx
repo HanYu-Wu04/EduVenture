@@ -25,7 +25,7 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
         setUsernameState(savedUsername);
       } else {
         // If no username is found, redirect to create account
-        router.replace('/(tabs)/two');
+        router.replace('/(tabs)/login');
       }
     } catch (error) {
       console.error('Error loading username:', error);
@@ -45,7 +45,7 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
     try {
       await AsyncStorage.removeItem('username');
       setUsernameState('');
-      router.replace('/(tabs)/two');
+      router.replace('/(tabs)/login');
     } catch (error) {
       console.error('Error during logout:', error);
     }
