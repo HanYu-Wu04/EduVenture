@@ -148,6 +148,15 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
+          name="paths"
+          options={{
+            title: "Paths",
+            tabBarIcon: ({ color }) => (
+              <TabBarIcon name="gamepad" color={color} />
+            ),
+          }}
+        />
+        <Tabs.Screen
           name="FarmerJohn/FarmerJohnCountingApplesScreen"
           options={{
             title: "game play",

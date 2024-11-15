@@ -81,7 +81,7 @@ export default function pathSetup() {
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.playButton}
-            onPress={() => router.push('/(tabs)/home')} // Navigate back to home
+            onPress={() => router.push('/(tabs)/paths')} // Navigate back to home
           >
             <Text style={styles.playButtonText}>Make Path!</Text>
           </TouchableOpacity>
