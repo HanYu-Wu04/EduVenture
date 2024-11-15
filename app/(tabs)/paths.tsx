@@ -8,7 +8,7 @@ export default function paths() {
   const router = useRouter();
 
   const paths = {
-    pathOneTitle: "Begginer Math Path",
+    pathOneTitle: "Beginner Math Path",
     pathTwoTitle: "Intermediate English Path",
     pathThreeTitle: "Advanced Science Path"
   };
