@@ -1,24 +1,29 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
-import { Text, View } from "@/components/Themed";
-import { useUser } from "@/components/userContext";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { useRouter } from "expo-router";
+import React from 'react';
+import { StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { Text, View } from '@/components/Themed';
+import { useUser } from '@/components/userContext';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { useRouter } from 'expo-router';
 import { Galindo_400Regular } from '@expo-google-fonts/galindo';
 import { useFonts } from 'expo-font';
 
+// Get the screen width
+const { width } = Dimensions.get('window');
 
 export default function HomeScreen() {
   const { username, logout } = useUser();
   const router = useRouter();
-
+  
   const [fontsLoaded] = useFonts({
     Galindo_400Regular,
   });
 
+  const isSmallScreen = width < 350; // You can adjust this threshold as needed
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-      <Text style={styles.title}>Welcome to EduVenture</Text>
+        <Text style={styles.title}>Welcome to EduVenture</Text>
         <View style={styles.profileContainer}>
           <TouchableOpacity
             style={styles.profileButton}
@@ -27,7 +32,12 @@ export default function HomeScreen() {
             <FontAwesome name="user-circle" size={40} color="#fff" />
             <Text style={styles.profileText}>{username}</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.logoutButton} onPress={logout}>
+          
+          {/* If on a smaller screen, stack the logout button */}
+          <TouchableOpacity 
+            style={[styles.logoutButton, isSmallScreen && styles.logoutButtonSmallScreen]} 
+            onPress={logout}
+          >
             <FontAwesome name="sign-out" size={16} color="#fff" />
             <Text style={styles.logoutText}>Logout</Text>
           </TouchableOpacity>
@@ -45,7 +55,7 @@ export default function HomeScreen() {
             </TouchableOpacity>
             <View style={styles.descriptionContainer}>
               <Text style={styles.descriptionText}>
-                This is game 1. This is a short description of the game
+                Join Farmer John on his sunny orchard as you help manage tasks, grow crops, and keep the farm thriving in this fun and engaging math game.
               </Text>
             </View>
           </View>
@@ -59,7 +69,7 @@ export default function HomeScreen() {
             </TouchableOpacity>
             <View style={styles.descriptionContainer}>
               <Text style={styles.descriptionText}>
-                This is game 2. This is a short description of the game
+                Play as a young Wonder Woman exploring a mysterious forest, uncovering secrets, and facing math challenges with adventure.
               </Text>
             </View>
           </View>
@@ -73,8 +83,7 @@ export default function HomeScreen() {
             </TouchableOpacity>
             <View style={styles.descriptionContainer}>
               <Text style={styles.descriptionText}>
-                Go here to see how you are progressing in your learning and
-                change the pace and difficulty.
+                Go here to see how you are progressing in your learning and change the pace and difficulty.
               </Text>
             </View>
           </View>
@@ -87,34 +96,33 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ffffff",
+    backgroundColor: '#ffffff',
   },
   header: {
     paddingTop: 40,
     paddingHorizontal: 20,
     paddingBottom: 20,
-    backgroundColor: "#85CAD5",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  galindoText: {
-    fontFamily: 'Galindo_400Regular',
-    fontSize: 24,
-    color: '#333',
+    backgroundColor: '#85CAD5',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between', // Ensure buttons are spaced out
+    flexWrap: 'wrap', // Allow content to wrap if needed
   },
   profileContainer: {
-    alignItems: "flex-start",
-    backgroundColor: "#85CAD5",
-    // alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 'auto',
+    flexWrap: 'wrap', // Allow the profile and logout buttons to wrap
+    backgroundColor: '#85CAD5',
+
   },
   profileButton: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     padding: 10,
     borderRadius: 20,
-    backgroundColor: "#0869b2",
-    shadowColor: "#000",
+    backgroundColor: '#0869b2',
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
@@ -123,77 +131,80 @@ const styles = StyleSheet.create({
   profileText: {
     marginLeft: 10,
     fontSize: 16,
-    color: "#fff",
-    fontWeight: "500",
+    color: '#fff',
+    fontWeight: '500',
   },
   logoutButton: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: 15,
-    backgroundColor: "#0869b2",
-    marginLeft: 50,
+    backgroundColor: '#0869b2',
+    marginLeft: 10,
   },
   logoutText: {
     marginLeft: 5,
     fontSize: 12,
-    color: "#fff",
+    color: '#fff',
+  },
+  logoutButtonSmallScreen: {
+    marginTop: 10, // Add space if stacked vertically on smaller screens
+    marginLeft: 0, // Reset margin-left for stacked layout
   },
   mainContent: {
     flex: 1,
     paddingHorizontal: 20,
-    backgroundColor: "#85CAD5",
+    backgroundColor: '#85CAD5',
   },
   title: {
     fontSize: 28,
-    fontWeight: "bold",
-    color: "#f41971",
+    fontWeight: 'bold',
+    color: '#f41971',
     marginBottom: 30,
-    textAlign: "center",
+    textAlign: 'center',
     fontFamily: 'Galindo_400Regular',
   },
   contentContainer: {
     flex: 1,
     gap: 20,
-    backgroundColor: "#85CAD5",
+    backgroundColor: '#85CAD5',
   },
   row: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 20,
     gap: 15,
-    backgroundColor: "#69BB57",
+    backgroundColor: '#69BB57',
   },
   squareButton: {
-    backgroundColor: "#273DBD",
+    backgroundColor: '#273DBD',
     width: 120,
     height: 120,
     borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-    shadowColor: "#000",
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 5,
   },
   buttonText: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center",
+    fontWeight: 'bold',
+    textAlign: 'center',
     fontFamily: 'Galindo_400Regular',
   },
   descriptionContainer: {
     flex: 1,
-    backgroundColor: "#69BB57",
+    backgroundColor: '#69BB57',
     paddingHorizontal: 10,
   },
   descriptionText: {
     fontSize: 16,
-    color: "#fff",
+    color: '#fff',
     lineHeight: 22,
     fontFamily: 'Galindo_400Regular',
-
   },
 });
