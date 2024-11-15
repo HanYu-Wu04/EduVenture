@@ -24,11 +24,11 @@ export default function HomeScreen() {
             style={styles.profileButton}
             onPress={() => router.push("/(tabs)/profile")}
           >
-            <FontAwesome name="user-circle" size={40} color="#4a90e2" />
+            <FontAwesome name="user-circle" size={40} color="#fff" />
             <Text style={styles.profileText}>{username}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.logoutButton} onPress={logout}>
-            <FontAwesome name="sign-out" size={16} color="#666" />
+            <FontAwesome name="sign-out" size={16} color="#fff" />
             <Text style={styles.logoutText}>Logout</Text>
           </TouchableOpacity>
         </View>
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     paddingHorizontal: 20,
     paddingBottom: 20,
-    backgroundColor: "#00c3f7",
+    backgroundColor: "#85CAD5",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -105,16 +105,15 @@ const styles = StyleSheet.create({
   },
   profileContainer: {
     alignItems: "flex-start",
-    backgroundColor: "#00c3f7",
+    backgroundColor: "#85CAD5",
     // alignItems: "center",
-    justifyContent: "center",
   },
   profileButton: {
     flexDirection: "row",
     alignItems: "center",
     padding: 10,
     borderRadius: 20,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#0869b2",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -124,27 +123,27 @@ const styles = StyleSheet.create({
   profileText: {
     marginLeft: 10,
     fontSize: 16,
-    color: "#333",
+    color: "#fff",
     fontWeight: "500",
   },
   logoutButton: {
     flexDirection: "row",
-    alignItems: "flex-start",
+    alignItems: "center",
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: 15,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#0869b2",
     marginLeft: 50,
   },
   logoutText: {
     marginLeft: 5,
     fontSize: 12,
-    color: "#666",
+    color: "#fff",
   },
   mainContent: {
     flex: 1,
     paddingHorizontal: 20,
-    backgroundColor: "#00c3f7",
+    backgroundColor: "#85CAD5",
   },
   title: {
     fontSize: 28,
@@ -157,7 +156,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     gap: 20,
-    backgroundColor: "#00c3f7",
+    backgroundColor: "#85CAD5",
   },
   row: {
     flexDirection: "row",
