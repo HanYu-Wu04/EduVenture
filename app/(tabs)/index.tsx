@@ -3,14 +3,30 @@ import { Text, View } from '@/components/Themed';
 import { useUser } from '@/components/userContext';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useRouter } from 'expo-router';
+// google font
+import { Galindo_400Regular } from '@expo-google-fonts/galindo';
+import { Schoolbell_400Regular } from '@expo-google-fonts/schoolbell';
+import { useFonts } from 'expo-font';
+
 
 export default function HomeScreen() {
   const { username, logout } = useUser();
   const router = useRouter();
 
+
+  const [fontsLoaded] = useFonts({
+    Galindo_400Regular,
+    Schoolbell_400Regular,
+  });
+
+  if (!fontsLoaded) {
+    return <Text>Loading Fonts...</Text>;  // Show loading state while fonts are loading
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+      <Text style={styles.title}>Welcome to EduVenture</Text>
         <View style={styles.profileContainer}>
           <TouchableOpacity 
             style={styles.profileButton}
@@ -18,20 +34,21 @@ export default function HomeScreen() {
           >
             <FontAwesome name="user-circle" size={40} color="#4a90e2" />
             <Text style={styles.profileText}>{username}</Text>
+            
           </TouchableOpacity>
           <TouchableOpacity 
             style={styles.logoutButton}
             onPress={logout}
-          >
+          >         
             <FontAwesome name="sign-out" size={16} color="#666" />
             <Text style={styles.logoutText}>Logout</Text>
           </TouchableOpacity>
         </View>
       </View>
+      
 
-      <View style={styles.mainContent}>
-        <Text style={styles.title}>Welcome to EduVenture</Text>
-        
+      <View style={styles.titleContainer}>
+        {/* <Text style={styles.title}>Welcome to EduVenture</Text> */}
         <View style={styles.contentContainer}>
           <View style={styles.row}>
             <TouchableOpacity style={styles.squareButton}
@@ -45,7 +62,6 @@ export default function HomeScreen() {
               </Text>
             </View>
           </View>
-
           <View style={styles.row}>
             <TouchableOpacity style={styles.squareButton}
             onPress={() => router.push('/(tabs)/game2')}
@@ -73,7 +89,9 @@ export default function HomeScreen() {
         </View>
       </View>
     </View>
+    
   );
+  
 }
 
 const styles = StyleSheet.create({
@@ -81,15 +99,53 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ffffff', 
   },
+  galindoText: {
+    fontFamily: 'Galindo_400Regular',
+    fontSize: 24,
+    color: '#333',
+  },
+  schoolbellText: {
+    fontFamily: 'Schoolbell_400Regular',
+    fontSize: 24,
+    color: '#333',
+  },
+  // titleContainer: {
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  //   flex: 1, // Ensures title is in the center of the screen
+  //   marginTop: 50, // Add space from the header
+    
+  // },
+  titleContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1, // Ensures title is in the center of the screen
+    marginTop: 50, // Add space from the header
+  },
+  // header: {
+  //   paddingTop: 40,
+  //   paddingHorizontal: 20,
+  //   paddingBottom: 20,
+  //   backgroundColor: '#00c3f7', 
+  //   flexDirection: 'row',
+  //   alignItems: 'center', // Ensure content is centered vertically
+  //   justifyContent: 'space-between',
+  // },
   header: {
     paddingTop: 40,
     paddingHorizontal: 20,
     paddingBottom: 20,
-    backgroundColor: '#ffffff', 
+    backgroundColor: '#00c3f7', 
+    flexDirection: 'row',
+    alignItems: 'center', // Ensure content is centered vertically
+    justifyContent: 'center', // Center the header content horizontally
   },
   profileContainer: {
-    alignItems: 'flex-start',
-    backgroundColor: '#ffffff', 
+    // alignItems: 'flex-start',
+    // backgroundColor: '#00c3f7', 
+    flexDirection: 'column', // Stack "Hello" and "Logout" vertically
+    alignItems: 'flex-end', // Align them to the right
+    backgroundColor: '#00c3f7', 
   },
   profileButton: {
     flexDirection: 'row',
@@ -117,6 +173,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     backgroundColor: '#f5f5f5',
     marginLeft: 50,
+    marginTop: 5
   },
   logoutText: {
     marginLeft: 5,
@@ -129,12 +186,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff', 
   },
   title: {
+    fontFamily: 'Galindo_400Regular',
     fontSize: 28,
-    fontWeight: 'bold',
-    color: '#333',
+    color: '#E13971', // 333 prior
     marginBottom: 30,
     textAlign: 'center',
-  },
+},
   contentContainer: {
     flex: 1,
     gap: 20,
@@ -148,7 +205,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff', 
   },
   squareButton: {
-    backgroundColor: '#4a90e2',
+    
+    backgroundColor: '#69BB57',
     width: 120,
     height: 120,
     borderRadius: 10,
