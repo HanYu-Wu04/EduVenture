@@ -3,10 +3,17 @@ import { Text, View } from "@/components/Themed";
 import { useUser } from "@/components/userContext";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useRouter } from "expo-router";
+import { Galindo_400Regular } from '@expo-google-fonts/galindo';
+import { useFonts } from 'expo-font';
+
 
 export default function HomeScreen() {
   const { username, logout } = useUser();
   const router = useRouter();
+
+  const [fontsLoaded] = useFonts({
+    Galindo_400Regular,
+  });
 
   return (
     <View style={styles.container}>
@@ -89,6 +96,11 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     backgroundColor: "#ffffff",
   },
+  galindoText: {
+    fontFamily: 'Galindo_400Regular',
+    fontSize: 24,
+    color: '#333',
+  },
   profileContainer: {
     alignItems: "flex-start",
     backgroundColor: "#ffffff",
@@ -136,6 +148,7 @@ const styles = StyleSheet.create({
     color: "#333",
     marginBottom: 30,
     textAlign: "center",
+    fontFamily: 'Galindo_400Regular',
   },
   contentContainer: {
     flex: 1,
