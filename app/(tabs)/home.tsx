@@ -18,6 +18,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+      <Text style={styles.title}>Welcome to EduVenture</Text>
         <View style={styles.profileContainer}>
           <TouchableOpacity
             style={styles.profileButton}
@@ -34,8 +35,6 @@ export default function HomeScreen() {
       </View>
 
       <View style={styles.mainContent}>
-        <Text style={styles.title}>Welcome to EduVenture</Text>
-
         <View style={styles.contentContainer}>
           <View style={styles.row}>
             <TouchableOpacity
@@ -94,7 +93,10 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     paddingHorizontal: 20,
     paddingBottom: 20,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#00c3f7",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   galindoText: {
     fontFamily: 'Galindo_400Regular',
@@ -103,7 +105,9 @@ const styles = StyleSheet.create({
   },
   profileContainer: {
     alignItems: "flex-start",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#00c3f7",
+    // alignItems: "center",
+    justifyContent: "center",
   },
   profileButton: {
     flexDirection: "row",
@@ -125,7 +129,7 @@ const styles = StyleSheet.create({
   },
   logoutButton: {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-start",
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: 15,
@@ -140,12 +144,12 @@ const styles = StyleSheet.create({
   mainContent: {
     flex: 1,
     paddingHorizontal: 20,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#00c3f7",
   },
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#333",
+    color: "#f41971",
     marginBottom: 30,
     textAlign: "center",
     fontFamily: 'Galindo_400Regular',
@@ -153,17 +157,17 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     gap: 20,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#00c3f7",
   },
   row: {
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 20,
     gap: 15,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#69BB57",
   },
   squareButton: {
-    backgroundColor: "#4a90e2",
+    backgroundColor: "#273DBD",
     width: 120,
     height: 120,
     borderRadius: 10,
@@ -179,15 +183,18 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     textAlign: "center",
+    fontFamily: 'Galindo_400Regular',
   },
   descriptionContainer: {
     flex: 1,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#69BB57",
     paddingHorizontal: 10,
   },
   descriptionText: {
     fontSize: 16,
-    color: "#666",
+    color: "#fff",
     lineHeight: 22,
+    fontFamily: 'Galindo_400Regular',
+
   },
 });
