@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   Keyboard,
+  Platform
 } from "react-native";
 import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
@@ -37,8 +38,7 @@ export default function WonderWomanMultiplicationChallengeScreen() {
     }
   };
 
-  return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+  const content = (
       <View style={styles.container}>
         <ImageBackground
           source={WonderWomanMultiplicationChallengeScreen}
@@ -106,6 +106,13 @@ export default function WonderWomanMultiplicationChallengeScreen() {
           </View>
         </ImageBackground>
       </View>
+  );
+
+  return Platform.OS === 'web' ? (
+    content
+  ) : (
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      {content}
     </TouchableWithoutFeedback>
   );
 }

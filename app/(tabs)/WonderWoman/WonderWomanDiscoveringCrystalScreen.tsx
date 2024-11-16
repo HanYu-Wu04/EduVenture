@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   Keyboard,
+  Platform
 } from "react-native";
 import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
@@ -38,8 +39,7 @@ export default function WonderWomanDiscoveringCrystalScreen() {
     }
   };
 
-  return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+  const content = (
       <View style={styles.container}>
         <ImageBackground
           source={WonderWomanDiscoveringCrystalScreen}
@@ -109,6 +109,13 @@ export default function WonderWomanDiscoveringCrystalScreen() {
           </View>
         </ImageBackground>
       </View>
+  );
+
+  return Platform.OS === 'web' ? (
+    content
+  ) : (
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      {content}
     </TouchableWithoutFeedback>
   );
 }

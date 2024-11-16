@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   Keyboard,
+  Platform
 } from "react-native";
 import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
@@ -38,8 +39,7 @@ export default function FarmerJohnAddingApplesScreen() {
     }
   };
 
-  return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+  const content = (
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.homeButton}
@@ -102,6 +102,13 @@ export default function FarmerJohnAddingApplesScreen() {
           </View>
         </ImageBackground>
       </View>
+  );
+
+  return Platform.OS === 'web' ? (
+    content
+  ) : (
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      {content}
     </TouchableWithoutFeedback>
   );
 }
