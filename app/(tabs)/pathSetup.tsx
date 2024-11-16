@@ -3,6 +3,7 @@ import { StyleSheet, TouchableOpacity, View, Text, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Slider from '@react-native-community/slider';
+import { useLocalSearchParams } from 'expo-router';
 
 
 export default function pathSetup() {
@@ -10,6 +11,7 @@ export default function pathSetup() {
   const [slider1Value, setSlider1Value] = useState(1);
   const [slider2Value, setSlider2Value] = useState(1);
   const [selectedOption, setSelectedOption] = useState('option1');
+  const { selectedPath } = useLocalSearchParams();
 
   const handleRadioChange = (value: string) => {
     setSelectedOption(value);
@@ -30,7 +32,7 @@ export default function pathSetup() {
       <View style={styles.mainContent}>
         <View style={styles.infoSection}>
           <Text style={styles.descriptionTitle}>Your path:</Text>
-          <Text style={styles.descriptionText}>Selected path here</Text>
+          <Text style={styles.descriptionText}>{selectedPath}</Text>
           
           <Text style={styles.descriptionTitle}>Schedule:</Text>
           <Text style={styles.label}>between {slider1Value} week(s)</Text>
