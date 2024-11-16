@@ -24,19 +24,31 @@ export default function learning() {
           <Text style={styles.descriptionTitle}>Choose Theme:</Text>
           
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.playButton} onPress={() => router.push('/(tabs)/pathSetup')}>
+            <TouchableOpacity style={styles.playButton}   
+              onPress={() => router.push({
+                pathname: '/(tabs)/pathSetup',
+                params: { selectedPath: 'Math' }
+              })}>
               <Text style={styles.buttonText}>Math</Text>
             </TouchableOpacity>
           </View>
           
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.playButton} onPress={() => router.push('/(tabs)/pathSetup')}>
+            <TouchableOpacity style={styles.playButton} 
+              onPress={() => router.push({
+               pathname: '/(tabs)/pathSetup',
+                params: { selectedPath: 'Science' }
+              })}>
               <Text style={styles.buttonText}>Science</Text>
             </TouchableOpacity>
           </View>
           
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.playButton} onPress={() => router.push('/(tabs)/pathSetup')}>
+            <TouchableOpacity style={styles.playButton} 
+              onPress={() => router.push({
+                pathname: '/(tabs)/pathSetup',
+                params: { selectedPath: 'English' }
+              })}>
               <Text style={styles.buttonText}>English</Text>
             </TouchableOpacity>
           </View>
