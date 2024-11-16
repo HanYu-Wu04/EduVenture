@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity, Image } from "react-native";
 import { Text, View } from "@/components/Themed";
 import { useRouter } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
@@ -10,9 +10,11 @@ export default function WonderWoman() {
     <View style={styles.container}>
       <Text style={styles.title}>Game 2</Text>
 
-      <View style={styles.imagePlaceholder}>
-        {/* Replace this with an actual image component later */}
-      </View>
+      <Image
+        source={require('@/assets/images/WonderWoman/WonderWomanEndScreen.png')} // Replace this with the actual path to your image
+        style={styles.image}
+        resizeMode="cover"
+      />
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity
@@ -199,5 +201,11 @@ const styles = StyleSheet.create({
     right: 20,
     padding: 10,
     backgroundColor: "#ffffff",
+  },
+  image: {
+    width: '100%',
+    height: 200,
+    borderRadius: 10,
+    marginBottom: 20,
   },
 });

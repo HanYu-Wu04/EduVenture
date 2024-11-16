@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Text, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Slider from '@react-native-community/slider';
@@ -18,9 +18,11 @@ export default function pathSetup() {
     <View style={styles.container}>
       <Text style={styles.title}>Learning Path</Text>
       
-      <View style={styles.imagePlaceholder}>
-        {/* Replace this with an actual image component later */}
-      </View>
+      <Image
+        source={require('@/assets/images/learningpath.png')} // Replace this with the actual path to your image
+        style={styles.image}
+        resizeMode="cover"
+      />
 
       <View style={styles.infoSection}>
         <Text style={styles.descriptionTitle}>Your path:</Text>
@@ -191,5 +193,11 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     fontSize: 17,
     color: "#333",
+  },
+  image: {
+    width: '100%',
+    height: 200,
+    borderRadius: 10,
+    marginBottom: 20,
   },
 });

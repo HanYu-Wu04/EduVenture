@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Text, View } from '@/components/Themed';
 import { useRouter } from 'expo-router';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
@@ -10,9 +10,11 @@ export default function Game1Screen() {
     <View style={styles.container}>
       <Text style={styles.title}>Game 1</Text>
       
-      <View style={styles.imagePlaceholder}>
-        {/* Replace this with an actual image component later */}
-      </View>
+      <Image
+        source={require('@/assets/images/FarmerJohn/FarmerJohnCountingApplesScreen.png')} // Replace this with the actual path to your image
+        style={styles.image}
+        resizeMode="cover"
+      />
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.playButton} 
@@ -22,12 +24,12 @@ export default function Game1Screen() {
       
         <View style={styles.rightButtons}>
           <TouchableOpacity style={styles.secondaryButton}
-          onPress={() => router.push('/(tabs)/FarmerJohn/FarmerJohnHistory')}
+            onPress={() => router.push('/(tabs)/FarmerJohn/FarmerJohnHistory')}
           >
             <Text style={styles.secondaryButtonText}>History</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.secondaryButton}
-          onPress={() => router.push('/(tabs)/FarmerJohn/FarmerJohnFeedback')}
+            onPress={() => router.push('/(tabs)/FarmerJohn/FarmerJohnFeedback')}
           >
             <Text style={styles.secondaryButtonText}>Feedback</Text>
           </TouchableOpacity>
@@ -76,10 +78,9 @@ const styles = StyleSheet.create({
       marginBottom: 20,
       color: '#333', 
     },
-    imagePlaceholder: {
+    image: {
       width: '100%',
       height: 200,
-      backgroundColor: '#e0e0e0',
       borderRadius: 10,
       marginBottom: 20,
     },
