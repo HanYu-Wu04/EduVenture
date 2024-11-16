@@ -1,4 +1,14 @@
-import { StyleSheet, ImageBackground, View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import {
+  StyleSheet,
+  ImageBackground,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Keyboard,
+  Platform,
+  TouchableWithoutFeedback
+} from 'react-native';
 import { useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
@@ -7,77 +17,112 @@ export default function FarmerJohnCountingApplesScreen() {
   const treeImage = require('@/assets/images/FarmerJohn/FarmerJohnPickingApplesScreen.png');
   const introImage = require('@/assets/images/FarmerJohn/FarmerJohnCountingApplesScreen.png');
   const [answer, setAnswer] = useState('');
-  const [stage, setStage] = useState(0); 
+  const [stage, setStage] = useState(0);
   const router = useRouter();
 
   const handleContinue = () => {
     if (stage < 3) {
-      setStage(stage + 1); 
+      setStage(stage + 1);
     } else {
       setStage(0);
-      router.push('/(tabs)/FarmerJohn/FarmerJohnPickingApplesScreen'); 
+      router.push('/(tabs)/FarmerJohn/FarmerJohnPickingApplesScreen');
     }
   };
 
   const handleSubmit = () => {
-    if (answer.trim() === '6') { 
+    if (answer.trim() === '6') {
       setStage(0);
-      setAnswer("");
+      setAnswer('');
       alert('Correct! Great counting!');
-      router.push('/(tabs)/FarmerJohn/FarmerJohnPickingApplesScreen'); 
+      router.push('/(tabs)/FarmerJohn/FarmerJohnPickingApplesScreen');
     } else {
       alert('Try again! Count the apples carefully.');
     }
   };
 
-  return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <View style={styles.container}>
-        <ImageBackground 
-          source={stage === 0 ? introImage : treeImage} // Use introImage if stage is 0
-          resizeMode="cover" 
-          style={styles.background}
+  const content = (
+    <View style={styles.container}>
+      <ImageBackground
+        source={stage === 0 ? introImage : treeImage}
+        resizeMode="cover"
+        style={styles.background}
+      >
+        {/* Home Button */}
+        <TouchableOpacity
+          style={styles.homeButton}
+          onPress={() => router.push('/(tabs)/home')}
         >
-          
-          {/* Home Button */}
-          <TouchableOpacity style={styles.homeButton} onPress={() => router.push('/(tabs)/home')}>
-            <Text style={styles.homeButtonText}>Home</Text>
-          </TouchableOpacity>
+          <Text style={styles.homeButtonText}>Home</Text>
+        </TouchableOpacity>
 
-          <View style={styles.contentContainer}>
-            <LinearGradient colors={['rgba(255, 255, 255, 0.8)', 'rgba(255, 255, 255, 0.6)']} style={styles.storyContainer}>
-              {stage === 0 && <Text style={styles.storyText}>It’s a bright, sunny morning on Farmer John’s orchard. The air is fresh, the birds are singing, and Farmer John is excited to get started on his tasks. He has a big smile on his face because today he’s getting some extra help — from you!</Text>}
-              {stage === 1 && <Text style={styles.storyText}>Farmer John walks up to the biggest apple tree in his orchard. Its branches are heavy with bright, red apples, each one round and shiny under the sunlight. He takes off his hat and scratches his head.</Text>}
-              {stage === 2 && <Text style={styles.storyText}>“Look at all these apples!” he says, chuckling. “I wonder how many are hanging on the tree. I could use some help counting them. Would you like to help me?”</Text>}
-              {stage === 3 && (
-                <>
-                  <Text style={styles.questionText}>How many apples are there on the tree?</Text>
-                  <TextInput
-                    style={styles.input}
-                    placeholder="Enter your answer"
-                    placeholderTextColor="#999"
-                    keyboardType="numeric"
-                    value={answer}
-                    onChangeText={setAnswer}
-                    onSubmitEditing={() => Keyboard.dismiss()}
-                  />
-                  <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-                    <Text style={styles.submitButtonText}>Submit Answer</Text>
-                  </TouchableOpacity>
-                </>
-              )}
-              {stage < 3 && (
-                <TouchableOpacity onPress={handleContinue}>
-                  <Text style={styles.tapText}>(Tap here to continue)</Text>
+        <View style={styles.contentContainer}>
+          <LinearGradient
+            colors={['rgba(255, 255, 255, 0.8)', 'rgba(255, 255, 255, 0.6)']}
+            style={styles.storyContainer}
+          >
+            {stage === 0 && (
+              <Text style={styles.storyText}>
+                It’s a bright, sunny morning on Farmer John’s orchard. The air is
+                fresh, the birds are singing, and Farmer John is excited to get
+                started on his tasks. He has a big smile on his face because today
+                he’s getting some extra help — from you!
+              </Text>
+            )}
+            {stage === 1 && (
+              <Text style={styles.storyText}>
+                Farmer John walks up to the biggest apple tree in his orchard. Its
+                branches are heavy with bright, red apples, each one round and shiny
+                under the sunlight. He takes off his hat and scratches his head.
+              </Text>
+            )}
+            {stage === 2 && (
+              <Text style={styles.storyText}>
+                “Look at all these apples!” he says, chuckling. “I wonder how many
+                are hanging on the tree. I could use some help counting them. Would
+                you like to help me?”
+              </Text>
+            )}
+            {stage === 3 && (
+              <>
+                <Text style={styles.questionText}>
+                  How many apples are there on the tree?
+                </Text>
+                <TextInput
+                  style={styles.input}
+                  placeholder="Enter your answer"
+                  placeholderTextColor="#999"
+                  keyboardType="numeric"
+                  value={answer}
+                  onChangeText={setAnswer}
+                />
+                <TouchableOpacity
+                  style={styles.submitButton}
+                  onPress={handleSubmit}
+                >
+                  <Text style={styles.submitButtonText}>Submit Answer</Text>
                 </TouchableOpacity>
-              )}
-            </LinearGradient>
-          </View>
-        </ImageBackground>
-      </View>
+              </>
+            )}
+            {stage < 3 && (
+              <TouchableOpacity onPress={handleContinue}>
+                <Text style={styles.tapText}>(Tap here to continue)</Text>
+              </TouchableOpacity>
+            )}
+          </LinearGradient>
+        </View>
+      </ImageBackground>
+    </View>
+  );
+
+  return Platform.OS === 'web' ? (
+    content
+  ) : (
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      {content}
     </TouchableWithoutFeedback>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
