@@ -6,7 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  Keyboard
+  Keyboard,
 } from "react-native";
 import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
@@ -23,20 +23,16 @@ export default function WonderWomanEnteringForestScreen() {
       setStage(stage + 1); // Progress to the next part of the story
     } else {
       setStage(0);
-      router.push(
-        "/(tabs)/WonderWoman/WonderWomanDiscoveringCrystalScreen"
-      ); // Navigate to the next screen when finished
+      router.push("/(tabs)/WonderWoman/WonderWomanDiscoveringCrystalScreen"); // Navigate to the next screen when finished
     }
   };
 
   const handleSubmit = () => {
-    if (answer.trim() === "12") {
+    if (answer.trim() === "6") {
       setStage(0);
       setAnswer("");
       alert("Correct! You have claimed the crystal!");
-      router.push(
-        "/(tabs)/WonderWoman/WonderWomanDiscoveringCrystalScreen"
-      ); // Proceed to the next screen
+      router.push("/(tabs)/WonderWoman/WonderWomanDiscoveringCrystalScreen"); // Proceed to the next screen
     } else {
       alert("Try again! Count the orbs carefully.");
     }
@@ -50,7 +46,10 @@ export default function WonderWomanEnteringForestScreen() {
           resizeMode="cover"
           style={styles.background}
         >
-          <TouchableOpacity style={styles.homeButton} onPress={() => router.push('/(tabs)/home')}>
+          <TouchableOpacity
+            style={styles.homeButton}
+            onPress={() => router.push("/(tabs)/home")}
+          >
             <Text style={styles.homeButtonText}>Home</Text>
           </TouchableOpacity>
           <View style={styles.contentContainer}>
@@ -61,9 +60,9 @@ export default function WonderWomanEnteringForestScreen() {
               {stage === 0 && (
                 <Text style={styles.storyText}>
                   Our young hero, dressed as Wonder Woman, steps into a dense,
-                  mysterious forest. The birds chirp, and the leaves rustle as she
-                  makes her way deeper into the trees. Suddenly, she sees a faint
-                  glow coming from a clearing ahead.
+                  mysterious forest. The birds chirp, and the leaves rustle as
+                  she makes her way deeper into the trees. Suddenly, she sees a
+                  faint glow coming from a clearing ahead.
                 </Text>
               )}
               {stage === 1 && (
@@ -84,7 +83,7 @@ export default function WonderWomanEnteringForestScreen() {
                     To claim this crystal, solve this challenge:
                   </Text>
                   <Text style={styles.questionText}>
-                    There are 3 rows of trees, and each row has 4 glowing orbs.
+                    There are 3 rows of trees, and each row has 2 glowing orbs.
                     How many orbs are there in total?
                   </Text>
                   <TextInput
@@ -105,7 +104,7 @@ export default function WonderWomanEnteringForestScreen() {
               )}
               {stage < 3 && (
                 <TouchableOpacity onPress={handleContinue}>
-                  <Text style={styles.tapText}>(Tap anywhere to continue)</Text>
+                  <Text style={styles.tapText}>(Tap here to continue)</Text>
                 </TouchableOpacity>
               )}
             </LinearGradient>
@@ -192,19 +191,19 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   homeButton: {
-    position: 'absolute',
+    position: "absolute",
     top: 40,
     right: 20,
-    backgroundColor: '#007AFF',
+    backgroundColor: "#007AFF",
     borderRadius: 25,
     paddingVertical: 8,
     paddingHorizontal: 15,
     zIndex: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
   homeButtonText: {
     fontSize: 16,
-    color: '#fff',
-    fontWeight: 'bold',
+    color: "#fff",
+    fontWeight: "bold",
   },
 });

@@ -6,7 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  Keyboard
+  Keyboard,
 } from "react-native";
 import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
@@ -45,7 +45,10 @@ export default function WonderWomanMultiplicationChallengeScreen() {
           resizeMode="cover"
           style={styles.background}
         >
-          <TouchableOpacity style={styles.homeButton} onPress={() => router.push('/(tabs)/home')}>
+          <TouchableOpacity
+            style={styles.homeButton}
+            onPress={() => router.push("/(tabs)/home")}
+          >
             <Text style={styles.homeButtonText}>Home</Text>
           </TouchableOpacity>
           <View style={styles.contentContainer}>
@@ -55,19 +58,21 @@ export default function WonderWomanMultiplicationChallengeScreen() {
             >
               {stage === 0 && (
                 <Text style={styles.storyText}>
-                  At last, Wonder Woman arrives at a cave at the mountain's peak.
-                  Inside, a glowing light illuminates the final magical crystal.
+                  At last, Wonder Woman arrives at a cave at the mountain's
+                  peak. Inside, a glowing light illuminates the final magical
+                  crystal.
                 </Text>
               )}
               {stage === 1 && (
                 <Text style={styles.storyText}>
-                  “I’ll need to lift this stone using all my strength!” she says.
+                  “I’ll need to lift this stone using all my strength!” she
+                  says.
                 </Text>
               )}
               {stage === 2 && (
                 <Text style={styles.storyText}>
-                  There’s a lever nearby with several weights. To lift the stone,
-                  she needs to arrange the weights in groups.
+                  There’s a lever nearby with several weights. To lift the
+                  stone, she needs to arrange the weights in groups.
                 </Text>
               )}
               {stage === 3 && (
@@ -94,7 +99,7 @@ export default function WonderWomanMultiplicationChallengeScreen() {
               )}
               {stage < 3 && (
                 <TouchableOpacity onPress={handleContinue}>
-                  <Text style={styles.tapText}>(Tap anywhere to continue)</Text>
+                  <Text style={styles.tapText}>(Tap here to continue)</Text>
                 </TouchableOpacity>
               )}
             </LinearGradient>
@@ -181,19 +186,19 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   homeButton: {
-    position: 'absolute',
+    position: "absolute",
     top: 40,
     right: 20,
-    backgroundColor: '#007AFF',
+    backgroundColor: "#007AFF",
     borderRadius: 25,
     paddingVertical: 8,
     paddingHorizontal: 15,
     zIndex: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
   homeButtonText: {
     fontSize: 16,
-    color: '#fff',
-    fontWeight: 'bold',
+    color: "#fff",
+    fontWeight: "bold",
   },
 });

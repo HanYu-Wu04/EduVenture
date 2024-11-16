@@ -6,7 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  Keyboard
+  Keyboard,
 } from "react-native";
 import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
@@ -50,7 +50,10 @@ export default function WonderWomanDivisionChallengeScreen() {
           resizeMode="cover"
           style={styles.background}
         >
-          <TouchableOpacity style={styles.homeButton} onPress={() => router.push('/(tabs)/home')}>
+          <TouchableOpacity
+            style={styles.homeButton}
+            onPress={() => router.push("/(tabs)/home")}
+          >
             <Text style={styles.homeButtonText}>Home</Text>
           </TouchableOpacity>
           <View style={styles.contentContainer}>
@@ -60,8 +63,9 @@ export default function WonderWomanDivisionChallengeScreen() {
             >
               {stage === 0 && (
                 <Text style={styles.storyText}>
-                  After crossing the lake, Wonder Woman reaches the base of a tall
-                  mountain. She’s determined to find the crystal at the top.
+                  After crossing the lake, Wonder Woman reaches the base of a
+                  tall mountain. She’s determined to find the crystal at the
+                  top.
                 </Text>
               )}
               {stage === 1 && (
@@ -81,8 +85,8 @@ export default function WonderWomanDivisionChallengeScreen() {
                     The animals give you 24 berries to eat.
                   </Text>
                   <Text style={styles.questionText}>
-                    If you want to save some, and only eat 4 berries at each rest
-                    stop, how many stops can you make?
+                    If you want to save some, and only eat 4 berries at each
+                    rest stop, how many stops can you make?
                   </Text>
                   <TextInput
                     style={styles.input}
@@ -102,7 +106,7 @@ export default function WonderWomanDivisionChallengeScreen() {
               )}
               {stage < 3 && (
                 <TouchableOpacity onPress={handleContinue}>
-                  <Text style={styles.tapText}>(Tap anywhere to continue)</Text>
+                  <Text style={styles.tapText}>(Tap here to continue)</Text>
                 </TouchableOpacity>
               )}
             </LinearGradient>
@@ -189,19 +193,19 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   homeButton: {
-    position: 'absolute',
+    position: "absolute",
     top: 40,
     right: 20,
-    backgroundColor: '#007AFF',
+    backgroundColor: "#007AFF",
     borderRadius: 25,
     paddingVertical: 8,
     paddingHorizontal: 15,
     zIndex: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
   homeButtonText: {
     fontSize: 16,
-    color: '#fff',
-    fontWeight: 'bold',
+    color: "#fff",
+    fontWeight: "bold",
   },
 });

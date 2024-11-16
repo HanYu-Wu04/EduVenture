@@ -6,7 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  Keyboard
+  Keyboard,
 } from "react-native";
 import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
@@ -23,9 +23,7 @@ export default function WonderWomanDiscoveringCrystalScreen() {
       setStage(stage + 1);
     } else {
       setStage(0);
-      router.push(
-        "/(tabs)/WonderWoman/WonderWomanDivisionChallengeScreen"
-      );
+      router.push("/(tabs)/WonderWoman/WonderWomanDivisionChallengeScreen");
     }
   };
 
@@ -34,9 +32,7 @@ export default function WonderWomanDiscoveringCrystalScreen() {
       setStage(0);
       setAnswer("");
       alert("Correct! You used the right number of boats.");
-      router.push(
-        "/(tabs)/WonderWoman/WonderWomanDivisionChallengeScreen"
-      );
+      router.push("/(tabs)/WonderWoman/WonderWomanDivisionChallengeScreen");
     } else {
       alert("Try again! Remember each boat can carry 3 items.");
     }
@@ -50,7 +46,10 @@ export default function WonderWomanDiscoveringCrystalScreen() {
           resizeMode="cover"
           style={styles.background}
         >
-          <TouchableOpacity style={styles.homeButton} onPress={() => router.push('/(tabs)/home')}>
+          <TouchableOpacity
+            style={styles.homeButton}
+            onPress={() => router.push("/(tabs)/home")}
+          >
             <Text style={styles.homeButtonText}>Home</Text>
           </TouchableOpacity>
           <View style={styles.contentContainer}>
@@ -61,8 +60,8 @@ export default function WonderWomanDiscoveringCrystalScreen() {
               {stage === 0 && (
                 <Text style={styles.storyText}>
                   Wonder Woman’s next clue leads her to a shimmering lake. She
-                  looks out across the water and spots something sparkling on the
-                  other side.
+                  looks out across the water and spots something sparkling on
+                  the other side.
                 </Text>
               )}
               {stage === 1 && (
@@ -82,8 +81,8 @@ export default function WonderWomanDiscoveringCrystalScreen() {
                     To cross the lake safely, you need to load the items evenly.
                   </Text>
                   <Text style={styles.questionText}>
-                    There are 12 items, and each boat can carry 3 items. How many
-                    boats do you need?
+                    There are 12 items, and each boat can carry 3 items. How
+                    many boats do you need?
                   </Text>
                   <TextInput
                     style={styles.input}
@@ -103,7 +102,7 @@ export default function WonderWomanDiscoveringCrystalScreen() {
               )}
               {stage < 3 && (
                 <TouchableOpacity onPress={handleContinue}>
-                  <Text style={styles.tapText}>(Tap anywhere to continue)</Text>
+                  <Text style={styles.tapText}>(Tap here to continue)</Text>
                 </TouchableOpacity>
               )}
             </LinearGradient>
@@ -190,19 +189,19 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   homeButton: {
-    position: 'absolute',
+    position: "absolute",
     top: 40,
     right: 20,
-    backgroundColor: '#007AFF',
+    backgroundColor: "#007AFF",
     borderRadius: 25,
     paddingVertical: 8,
     paddingHorizontal: 15,
     zIndex: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
   homeButtonText: {
     fontSize: 16,
-    color: '#fff',
-    fontWeight: 'bold',
+    color: "#fff",
+    fontWeight: "bold",
   },
 });
