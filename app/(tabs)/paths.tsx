@@ -9,13 +9,16 @@ export default function paths() {
 
   const paths = {
     pathOneTitle: "Beginner Math Path",
-    pathTwoTitle: "Intermediate English Path",
-    pathThreeTitle: "Advanced Science Path"
+    pathTwoTitle: "Basic English Path",
+    pathThreeTitle: "Expert Science Path"
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Learning Path</Text>
+      
+      <View style={styles.header}>
+        <Text style={styles.title}>My Paths</Text>
+      </View>
       
       <Image
         source={require('@/assets/images/learningpath.png')} // Replace this with the actual path to your image
@@ -23,51 +26,53 @@ export default function paths() {
         resizeMode="cover"
       />
 
-      <View style={styles.infoSection}>
-        <Text style={styles.descriptionTitle}>Your paths:</Text>
+      <View style={styles.mainContent}>
+        <View style={styles.infoSection}>
+            <Text style={styles.descriptionTitle}>Your paths:</Text>
 
-        <View style={styles.pathContainer}>
-            <View style={styles.pathRow}>
-                <Text style={styles.pathLabel}>{paths.pathOneTitle}</Text>
-                <TouchableOpacity
-                    style={styles.pathButton}
-                >
-                    <Text style={styles.playButtonText}> Start</Text>
-                </TouchableOpacity>
+            <View style={styles.pathContainer}>
+                <View style={styles.pathRow}>
+                    <Text style={styles.pathLabel}>{paths.pathOneTitle}</Text>
+                    <TouchableOpacity
+                        style={styles.pathButton}
+                    >
+                        <Text style={styles.playButtonText}> Start</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.pathRow}>
+                    <Text style={styles.pathLabel}>{paths.pathTwoTitle}</Text>
+                    <TouchableOpacity
+                        style={styles.pathButton}
+                    >
+                        <Text style={styles.playButtonText}> Start</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.pathRow}>
+                    <Text style={styles.pathLabel}>{paths.pathThreeTitle}</Text>
+                    <TouchableOpacity
+                        style={styles.pathButton}
+                    >
+                        <Text style={styles.playButtonText}> Start</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
-            <View style={styles.pathRow}>
-                <Text style={styles.pathLabel}>{paths.pathTwoTitle}</Text>
-                <TouchableOpacity
-                    style={styles.pathButton}
-                >
-                    <Text style={styles.playButtonText}> Start</Text>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.pathRow}>
-                <Text style={styles.pathLabel}>{paths.pathThreeTitle}</Text>
-                <TouchableOpacity
-                    style={styles.pathButton}
-                >
-                    <Text style={styles.playButtonText}> Start</Text>
-                </TouchableOpacity>
+
+            <View style={styles.buttonContainer}>
+            <TouchableOpacity
+                style={styles.playButton}
+                onPress={() => router.push('/(tabs)/learning')}
+            >
+                <Text style={styles.playButtonText}>+ Add New Path</Text>
+            </TouchableOpacity>
             </View>
         </View>
-
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={styles.playButton}
-            onPress={() => router.push('/(tabs)/learning')} // Navigate back to home
-          >
-            <Text style={styles.playButtonText}>+ Add New Path</Text>
-          </TouchableOpacity>
         </View>
-      </View>
 
       <TouchableOpacity 
         style={styles.homeButton}
         onPress={() => router.push('/(tabs)/home')}
       >
-        <FontAwesome name="home" size={24} color="#4a90e2" />
+        <FontAwesome name="home" size={24} color="#273DBD" />
       </TouchableOpacity>
     </View>
   );
@@ -77,7 +82,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#ffffff', 
+    backgroundColor: '#85CAD5', 
   },
   title: {
     fontSize: 32,
@@ -85,7 +90,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 20,
     marginBottom: 20,
-    color: '#333', 
+    color: '#f41971', 
+    fontFamily: 'Galindo_400Regular',
   },
   imagePlaceholder: {
     width: '100%',
@@ -99,13 +105,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'flex-start',
     marginBottom: 30,
-    backgroundColor: '#ffffff', 
+    backgroundColor: '#69BB57', 
     paddingVertical: 10,
     paddingHorizontal: 5,
-    borderRadius: 10, 
   },
   pathButton: {
-    backgroundColor: '#4a90e2',
+    backgroundColor: '#273DBD',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 10,
@@ -115,7 +120,7 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
   },
   playButton: {
-    backgroundColor: '#4a90e2',
+    backgroundColor: '#273DBD',
     paddingVertical: 15,
     paddingHorizontal: 40,
     borderRadius: 10,
@@ -126,30 +131,33 @@ const styles = StyleSheet.create({
   },
   playButtonText: {
     color: '#fff',
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: 'bold',
+    fontFamily: 'Galindo_400Regular',
   },
   homeButton: {
     position: 'absolute',
     bottom: 20,
     right: 20,
     padding: 10,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#85CAD5',
   },
   infoSection: {
     marginBottom: 30,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#85CAD5',
   },
   descriptionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 5,
-    color: '#333',
+    color: '#f41971',
+    fontFamily: 'Galindo_400Regular',
   },
   pathContainer: {
+
     width: '100%',
     paddingHorizontal: 20,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#69BB57',
   },
   pathRow: {
     flexDirection: 'row',
@@ -158,18 +166,33 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0', 
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#69BB57',
   },
   pathLabel: {
-    fontSize: 18,
-    color: '#333', 
+    fontSize: 16,
+    color: '#fff', 
     fontWeight: '500',
+    fontFamily: 'Galindo_400Regular',
   },
   pathValue: {
     fontSize: 18,
     color: '#4a90e2', 
     fontWeight: '600',
   },
+  header: {
+    paddingTop: 10,
+    paddingHorizontal: 20,
+    backgroundColor: "#85CAD5",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  mainContent: {
+    flex: 1,
+    paddingHorizontal: 20,
+    backgroundColor: "#85CAD5",
+  },
+  
   image: {
     width: '100%',
     height: 200,
