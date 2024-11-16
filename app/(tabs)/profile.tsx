@@ -202,6 +202,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     backgroundColor: "#69BB57",
     borderRadius: 5,
+    padding: 5,
   },
   gameText: {
     fontSize: 16,
@@ -233,6 +234,7 @@ const styles = StyleSheet.create({
     fontFamily: "Galindo_400Regular",
     backgroundColor: "#69BB57",
     borderRadius: 5,
+    padding: 10,
   },
   homeButton: {
     position: "absolute",
