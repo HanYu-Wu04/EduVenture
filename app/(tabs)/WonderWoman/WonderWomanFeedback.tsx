@@ -27,9 +27,9 @@ export default function WonderWomanFeedback() {
         </View>
       </View>
 
-      <TouchableOpacity 
+      <TouchableOpacity
         style={styles.button}
-        onPress={() => router.push('/(tabs)/WonderWoman/WonderWomanReview')}
+        onPress={() => router.push("/(tabs)/WonderWoman/WonderWomanReview")}
       >
         <Text style={styles.buttonText}>Review</Text>
       </TouchableOpacity>
@@ -38,7 +38,7 @@ export default function WonderWomanFeedback() {
         style={styles.backButton}
         onPress={() => router.push("/(tabs)/WonderWoman/WonderWoman")}
       >
-        <FontAwesome name="arrow-left" size={24} color="#4a90e2" />
+        <FontAwesome name="arrow-left" size={24} color="#fff" />
       </TouchableOpacity>
     </View>
   );
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#85CAD5",
   },
   title: {
     fontSize: 32,
@@ -56,55 +56,67 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
     marginBottom: 30,
-    color: "#333",
+    color: "#E13971",
+    fontFamily: "Galindo_400Regular",
   },
   feedbackSection: {
     marginTop: 20,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#85CAD5",
   },
   feedbackLabel: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 15,
-    color: "#333",
+    color: "#E13971",
+    fontFamily: "Galindo_400Regular",
   },
   feedbackText: {
     fontSize: 18,
     lineHeight: 26,
-    color: "#666",
+    color: "#fff",
     marginBottom: 30,
+    fontFamily: "Galindo_400Regular",
+    backgroundColor: "#69BB57",
+    borderRadius: 5,
+    padding: 10,
   },
   skillsSection: {
     marginTop: 20,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#85CAD5",
   },
   skillText: {
     fontSize: 18,
     marginBottom: 10,
-    color: "#666",
+    color: "#fff",
+    fontFamily: "Galindo_400Regular",
+    backgroundColor: "#69BB57",
+    borderRadius: 5,
+    padding: 2,
   },
   skillLabel: {
     fontWeight: "bold",
-    color: "#333",
+    color: "#E13971",
+    fontFamily: "Galindo_400Regular",
   },
   backButton: {
     position: "absolute",
     bottom: 20,
     left: 20,
     padding: 10,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#273DBD",
+    borderRadius: 5,
   },
   button: {
-    backgroundColor: '#4a90e2',
+    backgroundColor: "#273DBD",
     paddingVertical: 15,
     paddingHorizontal: 40,
     borderRadius: 10,
-    width: '100%',
-    alignItems: 'center',
+    width: "100%",
+    alignItems: "center",
   },
   buttonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });
