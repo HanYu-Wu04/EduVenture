@@ -1,40 +1,53 @@
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
-import { useState } from 'react';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useRouter } from 'expo-router';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
+import { useState } from "react";
+import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 
 const questions = [
   {
-    question: "There is 6 apples on the tree, Farmer John picked 4 apples. How many are left?",
-    correctAnswer: '2',
+    question:
+      "There is 6 apples on the tree, Farmer John picked 4 apples. How many are left?",
+    correctAnswer: "2",
     hint: "Try subtracting 4 from the total apples on the tree.",
   },
   {
-    question: "Farmer John already has 6 apples in his basket. He finds 4 more. How many in total?",
-    correctAnswer: '10',
+    question:
+      "Farmer John already has 6 apples in his basket. He finds 4 more. How many in total?",
+    correctAnswer: "10",
     hint: "Add the apples in the basket with the apples he found.",
   },
   {
-    question: "Farmer John have 6 carrots, after feeding 2 carrots to the rabbits, how many carrots he have left",
-    correctAnswer: '4',
+    question:
+      "Farmer John have 6 carrots, after feeding 2 carrots to the rabbits, how many carrots he have left",
+    correctAnswer: "4",
     hint: "Subtract total number of carrot by number of carrot fed.",
   },
   {
-    question: "Farmer John have 8 seeds, and are planning to leave 3 seeds for next year, how many seeds should he plant today",
-    correctAnswer: '5',
+    question:
+      "Farmer John have 8 seeds, and are planning to leave 3 seeds for next year, how many seeds should he plant today",
+    correctAnswer: "5",
     hint: "Subtract total number of seeds by number of seeds he plan to plant next year",
   },
   {
-    question: "Farmer John have 8 apples in his basket, and collected 7 more apples from the tree, how many apples he have in total now",
-    correctAnswer: '15',
+    question:
+      "Farmer John have 8 apples in his basket, and collected 7 more apples from the tree, how many apples he have in total now",
+    correctAnswer: "15",
     hint: "Add the number of apples together",
   },
 ];
 
 export default function FarmerJohnReview() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [userAnswer, setUserAnswer] = useState('');
-  const [feedback, setFeedback] = useState('');
+  const [userAnswer, setUserAnswer] = useState("");
+  const [feedback, setFeedback] = useState("");
   const router = useRouter();
 
   const handleAnswerSubmit = () => {
@@ -49,44 +62,67 @@ export default function FarmerJohnReview() {
   const handleNextQuestion = () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-      setUserAnswer('');
-      setFeedback('');
+      setUserAnswer("");
+      setFeedback("");
     } else {
-        setCurrentQuestionIndex(0)
-      router.push('/(tabs)/home'); // Go back to the home page after the last question
+      setCurrentQuestionIndex(0);
+      router.push("/(tabs)/home"); // Go back to the home page after the last question
     }
   };
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
-        <TouchableOpacity style={styles.homeButton} onPress={() => router.push('/(tabs)/home')}>
+        <TouchableOpacity
+          style={styles.homeButton}
+          onPress={() => router.push("/(tabs)/home")}
+        >
           <Text style={styles.homeButtonText}>Home</Text>
         </TouchableOpacity>
 
-        <LinearGradient colors={['rgba(255, 255, 255, 0.9)', 'rgba(255, 255, 255, 0.7)']} style={styles.reviewContainer}>
-          <Text style={styles.questionText}>{questions[currentQuestionIndex].question}</Text>
+        <LinearGradient
+          colors={["rgba(255, 255, 255, 0.9)", "rgba(255, 255, 255, 0.7)"]}
+          style={styles.reviewContainer}
+        >
+          <Text style={styles.questionText}>
+            {questions[currentQuestionIndex].question}
+          </Text>
           <TextInput
             style={styles.input}
             placeholder="Enter your answer"
-            placeholderTextColor="#999"
+            placeholderTextColor="#E13971"
             keyboardType="numeric"
             value={userAnswer}
             onChangeText={setUserAnswer}
           />
-          <TouchableOpacity style={styles.submitButton} onPress={handleAnswerSubmit}>
+          <TouchableOpacity
+            style={styles.submitButton}
+            onPress={handleAnswerSubmit}
+          >
             <Text style={styles.submitButtonText}>Submit Answer</Text>
           </TouchableOpacity>
-          
+
           {feedback ? (
-            <Text style={[styles.feedbackText, feedback.includes("Correct") ? styles.correctFeedback : styles.incorrectFeedback]}>
+            <Text
+              style={[
+                styles.feedbackText,
+                feedback.includes("Correct")
+                  ? styles.correctFeedback
+                  : styles.incorrectFeedback,
+              ]}
+            >
               {feedback}
             </Text>
           ) : null}
 
-          <TouchableOpacity style={styles.nextButton} onPress={handleNextQuestion}>
+          <TouchableOpacity
+            style={styles.nextButton}
+            onPress={handleNextQuestion}
+          >
             <Text style={styles.nextButtonText}>
-              {currentQuestionIndex < questions.length - 1 ? "Next Question" : "Finish Review"}
+              {currentQuestionIndex < questions.length - 1
+                ? "Next Question"
+                : "Finish Review"}
             </Text>
           </TouchableOpacity>
         </LinearGradient>
@@ -98,97 +134,100 @@ export default function FarmerJohnReview() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "#85CAD5",
+    justifyContent: "center",
+    alignItems: "center",
   },
   reviewContainer: {
-    width: '90%',
+    width: "90%",
     padding: 20,
     borderRadius: 15,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 6,
-    alignItems: 'center',
+    alignItems: "center",
   },
   questionText: {
     fontSize: 20,
-    fontWeight: '600',
-    color: '#333',
+    fontWeight: "600",
+    color: "#333",
     marginBottom: 15,
-    textAlign: 'center',
+    textAlign: "center",
   },
   input: {
-    width: '100%',
+    width: "100%",
     height: 50,
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: "#ddd",
     borderRadius: 25,
     paddingHorizontal: 15,
     fontSize: 18,
-    color: '#333',
-    backgroundColor: '#fff',
+    color: "#333",
+    backgroundColor: "#fff",
     marginBottom: 15,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
   },
   submitButton: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: "#4CAF50",
     borderRadius: 25,
     paddingVertical: 12,
     paddingHorizontal: 30,
     marginBottom: 10,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 5,
   },
   submitButtonText: {
     fontSize: 18,
-    fontWeight: 'bold',
-    color: '#fff',
+    fontWeight: "bold",
+    color: "#fff",
+    fontFamily: "Galindo_400Regular",
   },
   feedbackText: {
     fontSize: 16,
-    textAlign: 'center',
+    textAlign: "center",
     marginBottom: 20,
   },
   correctFeedback: {
-    color: 'green',
+    color: "green",
   },
   incorrectFeedback: {
-    color: 'red',
+    color: "red",
   },
   nextButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: "#007AFF",
     borderRadius: 25,
     paddingVertical: 12,
     paddingHorizontal: 30,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 5,
   },
   nextButtonText: {
     fontSize: 18,
-    fontWeight: 'bold',
-    color: '#fff',
+    fontWeight: "bold",
+    color: "#fff",
+    fontFamily: "Galindo_400Regular",
   },
   homeButton: {
-    position: 'absolute',
+    position: "absolute",
     top: 40,
     left: 20,
-    backgroundColor: '#4CAF50',
+    backgroundColor: "#4CAF50",
     paddingVertical: 8,
     paddingHorizontal: 15,
     borderRadius: 20,
   },
   homeButtonText: {
     fontSize: 16,
-    color: '#fff',
-    fontWeight: 'bold',
+    color: "#fff",
+    fontWeight: "bold",
+    fontFamily: "Galindo_400Regular",
   },
 });
