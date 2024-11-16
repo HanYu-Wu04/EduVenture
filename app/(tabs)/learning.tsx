@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
       marginTop: 20,
       marginBottom: 20,
       color: '#f41971', 
+      fontFamily: 'Galindo_400Regular',
     },
     buttonContainer: {
       flexDirection: 'row',
@@ -122,6 +123,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       marginBottom: 5,
       color: '#f41971',
+      fontFamily: 'Galindo_400Regular',
     },
     header: {
       paddingTop: 10,
