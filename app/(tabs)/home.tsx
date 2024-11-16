@@ -51,11 +51,11 @@ export default function HomeScreen() {
               style={styles.squareButton}
               onPress={() => router.push("/(tabs)/FarmerJohn/FarmerJohn")}
             >
-              <Text style={styles.buttonText}>Game 1</Text>
+              <Text style={styles.buttonText}>Farmer John</Text>
             </TouchableOpacity>
             <View style={styles.descriptionContainer}>
               <Text style={styles.descriptionText}>
-                Join Farmer John on his sunny orchard as you help manage tasks, grow crops, and keep the farm thriving in this fun and engaging math game.
+                Join Farmer John in this engaging math game.
               </Text>
             </View>
           </View>
@@ -65,11 +65,11 @@ export default function HomeScreen() {
               style={styles.squareButton}
               onPress={() => router.push("/(tabs)/WonderWoman/WonderWoman")}
             >
-              <Text style={styles.buttonText}>Game 2</Text>
+              <Text style={styles.buttonText}>Wonder Woman</Text>
             </TouchableOpacity>
             <View style={styles.descriptionContainer}>
               <Text style={styles.descriptionText}>
-                Play as a young Wonder Woman exploring a mysterious forest, uncovering secrets, and facing math challenges with adventure.
+                Play as a young Wonder Woman exploring a mysterious forest facing math challenges with adventure.
               </Text>
             </View>
           </View>
